@@ -15,7 +15,7 @@ function CategoryGridItem ({ title, color,id, onPress }) {
       >
         <View style={[{}, styles.innerContainer]}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.title}>{id}</Text>
+         
         </View>
       </Pressable>
     </View>
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     margin: 8,
     height: 150,
     borderRadius: 8,
+  
 
     color: 'black',
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 22,
-    color: 'black'
+    color: 'black',
+    textAlign:'center'
   }
 })
