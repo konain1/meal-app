@@ -9,7 +9,7 @@ function MealsOverviewScreen({route}){
     const categoryId = route.params.categoryId
     const displayMeals = MEALS.filter(meal => meal.categoryIds.indexOf(categoryId) >= 0)
 
-    console
+    console.log(displayMeals)
 
     function  renderMeal(itemData){
         return <MealItems meal={itemData.item} />
