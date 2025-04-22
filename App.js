@@ -1,45 +1,47 @@
-import { StatusBar } from 'expo-status-bar';
-import {  StyleSheet, Text, View } from 'react-native';
-import CategoriesScreen from './screens/CategoriesScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MealsOverviewScreen from './screens/MealsOverviewScreen';
-import MealsDetailsScreen from './screens/MealsDetailsScreen';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View, Button } from 'react-native'
+import CategoriesScreen from './screens/CategoriesScreen'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import MealsOverviewScreen from './screens/MealsOverviewScreen'
+import MealsDetailsScreen from './screens/MealsDetailsScreen'
+import IconButton from './components/IconButton'
 
+const Stack = createNativeStackNavigator()
 
-
-
-
-const Stack = createNativeStackNavigator();
-
-
-export default function App() {
+export default function App () {
   
-
-
   return (
     <>
-    <NavigationContainer>
-    <Stack.Navigator screenOptions={{
-     headerStyle:{backgroundColor:'lightgreen'},
-     contentStyle:{backgroundColor:'purple'},
-     headerTintColor:'purple'
-    }} >
-      <Stack.Screen  name="MealsCategory" component={CategoriesScreen}   options={{
-          title: 'My home',
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          }}} />
-      <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
-      <Stack.Screen name="MealsDetails" component={MealsDetailsScreen}  options={{ 
-        
-        contentStyle:{backgroundColor:'white'},
-      
-      }}/>
-    </Stack.Navigator>
-    </NavigationContainer>
-    
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: 'lightgreen' },
+            contentStyle: { backgroundColor: 'purple' },
+            headerTintColor: 'purple'
+          }}
+        >
+          <Stack.Screen
+            name='MealsCategory'
+            component={CategoriesScreen}
+            options={{
+              title: 'My home',
+              headerStyle: {
+                backgroundColor: '#f4511e'
+              }
+            }}
+          />
+          <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} />
+          <Stack.Screen
+            name='MealsDetails'
+            component={MealsDetailsScreen}
+            options={{
+              contentStyle: { backgroundColor: 'white' },
+             
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
-  );
+  )
 }
-
