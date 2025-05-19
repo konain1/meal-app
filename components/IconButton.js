@@ -1,4 +1,4 @@
-import { Pressable } from "react-native";
+import { Pressable,StyleSheet } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 
@@ -9,3 +9,11 @@ function IconButton({onPress,icon,color}){
 }
 
 export default IconButton
+const styles = StyleSheet.create({
+    pressed: {
+        opacity: 0.7,
+        backgroundColor: '#e2b497',
+        borderRadius: 20,
+        padding: 6,
+    }
+});

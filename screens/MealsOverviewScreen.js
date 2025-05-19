@@ -27,6 +27,7 @@ function MealsOverviewScreen({route,navigation}){
     function  renderMeal(itemData){
         return <MealItems meal={itemData.item} />
     }
+    
     return(
         <View>
             <FlatList  data={displayMeals} keyExtractor={item=>item.id} renderItem={renderMeal} />

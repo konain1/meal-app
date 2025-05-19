@@ -1,29 +1,40 @@
 import { useNavigation } from '@react-navigation/native'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 import IconButton from './IconButton'
-import { useLayoutEffect } from 'react'
+import { useContext, useLayoutEffect } from 'react'
+import {FavouriteContext} from '../store/context/favourite'
+import { MEALS } from '../data/dummy-data'
 
 function MealsDetails (props) {
-  function headerButtonPressHandler () {
-    console.log('pressed header button')
-  }
-
+  const mealId = props.mealId.id
   const navigation = useNavigation()
 
-  useLayoutEffect(()=>{
-    navigation.setOptions({
-        headerRight: () => {
-          return (
-            <IconButton
-              icon='star'
-              color='yellow'
-              onPress={headerButtonPressHandler}
-            ></IconButton>
-          )
-        }
-      })
-  },[headerButtonPressHandler,navigation])
+  const FavouriteMealContext = useContext(FavouriteContext)
 
+  let favMeal = FavouriteMealContext?.ids?.includes(mealId)
+
+  function changeFavourite () {
+    if (favMeal) {
+      FavouriteMealContext.removeFavourite(mealId)
+    } else {
+      FavouriteMealContext.addFavourite(mealId)
+    }
+  }
+
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return (
+          <IconButton
+            icon={favMeal ? 'star' : 'staro'}
+            color='yellow'
+            onPress={changeFavourite}
+          ></IconButton>
+        )
+      }
+    })
+  }, [changeFavourite, navigation,favMeal])
 
   return (
     <>

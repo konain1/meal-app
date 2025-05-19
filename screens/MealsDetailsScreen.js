@@ -4,6 +4,8 @@ import MealsDetails from '../components/MealDetails'
 function MealsDetailsScreen({ route }) {
   const mealsDetails = route.params.mealDetails
 
+ 
+    
   return (
     <ScrollView style={styles.rootContainer}>
       <View style={styles.header}>
@@ -16,6 +18,7 @@ function MealsDetailsScreen({ route }) {
         duration={mealsDetails.duration}
         complexity={mealsDetails.complexity}
         detailText={styles.detailText}
+        mealId={mealsDetails}
       />
 
       <View style={styles.ingredients}>

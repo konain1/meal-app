@@ -28,7 +28,7 @@ function MealItems({ meal }) {
         
     <View>
         <Image style={styles.image} source={{uri:meal.imageUrl}} />
-        <Text style={styles.title}>{meal.title}</Text>
+        <Text style={styles.title}>{meal.title} {meal.id}</Text>
            
      
     </View>

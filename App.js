@@ -7,12 +7,14 @@ import MealsOverviewScreen from './screens/MealsOverviewScreen'
 import MealsDetailsScreen from './screens/MealsDetailsScreen'
 import IconButton from './components/IconButton'
 import DrawerNavigator from './Drawer/DrawerNavigator'
+import FavouriteContextProvider from './store/context/favourite'
 
 const Stack = createNativeStackNavigator()
 
 export default function App () {
   return (
     <>
+    <FavouriteContextProvider>
       <NavigationContainer>
       
         <Stack.Navigator
@@ -22,16 +24,7 @@ export default function App () {
             headerTintColor: 'purple'
           }}
         >
-          {/* <Stack.Screen
-            name='MealsCategory'
-            component={CategoriesScreen}
-            options={{
-              title: 'My home',
-              headerStyle: {
-                backgroundColor: '#f4511e'
-              }
-            }}
-          /> */}
+         
 
           <Stack.Screen
             name='Drawer'
@@ -53,6 +46,7 @@ export default function App () {
 
         </Stack.Navigator>
       </NavigationContainer>
+      </FavouriteContextProvider>
     </>
   )
 }
