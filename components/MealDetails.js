@@ -16,6 +16,7 @@ function MealsDetails (props) {
   function changeFavourite () {
     if (favMeal) {
       FavouriteMealContext.removeFavourite(mealId)
+      console.log(FavouriteContext.ids)
     } else {
       FavouriteMealContext.addFavourite(mealId)
     }

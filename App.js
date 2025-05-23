@@ -1,22 +1,16 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import CategoriesScreen from './screens/CategoriesScreen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import DrawerNavigator from './Drawer/DrawerNavigator'
 import MealsOverviewScreen from './screens/MealsOverviewScreen'
 import MealsDetailsScreen from './screens/MealsDetailsScreen'
-import IconButton from './components/IconButton'
-import DrawerNavigator from './Drawer/DrawerNavigator'
-import FavouriteContextProvider from './store/context/favourite'
+import {FavouriteContextProvider} from './store/context/favourite'
 
 const Stack = createNativeStackNavigator()
 
-export default function App () {
+export default function App() {
   return (
-    <>
     <FavouriteContextProvider>
       <NavigationContainer>
-      
         <Stack.Navigator
           screenOptions={{
             headerStyle: { backgroundColor: 'lightgreen' },
@@ -24,8 +18,6 @@ export default function App () {
             headerTintColor: 'purple'
           }}
         >
-         
-
           <Stack.Screen
             name='Drawer'
             component={DrawerNavigator}
@@ -33,9 +25,10 @@ export default function App () {
               headerShown: false
             }}
           />
-
-          <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} />
-
+          <Stack.Screen 
+            name='MealsOverview' 
+            component={MealsOverviewScreen} 
+          />
           <Stack.Screen
             name='MealsDetails'
             component={MealsDetailsScreen}
@@ -43,10 +36,8 @@ export default function App () {
               contentStyle: { backgroundColor: 'white' }
             }}
           />
-
         </Stack.Navigator>
       </NavigationContainer>
-      </FavouriteContextProvider>
-    </>
+    </FavouriteContextProvider>
   )
 }

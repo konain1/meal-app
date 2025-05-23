@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
 
-// Initial context value with typed functions
+// Create the context
 export const FavouriteContext = createContext({
   ids: [],
   addFavourite: (id) => {},
@@ -12,7 +12,6 @@ export function FavouriteContextProvider({ children }) {
 
   function addFavourite(id) {
     setFavouriteMealIds((currentMealIds) => {
-      // Prevent duplicate IDs
       if (currentMealIds.includes(id)) {
         return currentMealIds
       }
@@ -38,6 +37,3 @@ export function FavouriteContextProvider({ children }) {
     </FavouriteContext.Provider>
   )
 }
-
-// Default export the Provider
-export default FavouriteContextProvider
